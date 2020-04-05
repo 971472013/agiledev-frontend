@@ -13,7 +13,9 @@ import 'echarts/theme/macarons.js'
 
 // 设置反向代理，设置前段请求默认url
 var axios = require('axios')
-axios.defaults.baseURL = 'http://localhost:8443/api'
+// axios.defaults.baseURL = (process.env.VUE_APP_BASE_API) + '/api/'
+// axios.defaults.baseURL = 'http://120.77.183.132:8443/api/'
+axios.defaults.baseURL = 'http://localhost:8443/api/'
 //为了让前端能够带上 cookie
 axios.defaults.withCredentials = true
 // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
