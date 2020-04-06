@@ -14,7 +14,18 @@
           <p>出版时间：{{info.year}}</p>
         </el-aside>
         <el-aside>
-          <p>评分：{{info.score}}</p>
+          <p>
+            <span> 评分：</span>
+            <span>
+              <el-rate
+                v-model="info.score"
+                disabled
+                show-score
+                text-color="#ff9900"
+                score-template="{value}"
+                style="float:right;line-height: 1.3">
+              </el-rate>
+            </span></p>
         </el-aside>
       </el-container>
     </el-header>
@@ -28,17 +39,22 @@
         <p>{{info.author_des}}</p>
       </div>
       <h2>短评</h2>
-      <el-row>
-        <el-tooltip effect="dark" placement="right"
-          v-for="item in comments" :key="item.id" style="">
-          <div style="padding: 10px; border: solid 1px #e6e6e6; margin: 5px">
-            <h3 style="left: 0px">
-              <span >{{item.p_name}} {{item.p_time}} 评分：{{item.p_score}} </span>
-              <span style="float: right">{{item.praise}} 有用</span>
-            </h3>
+      <el-row v-for="item in comments" :key="item.id" style="padding: 10px; border: solid 1px #e6e6e6; margin: 5px">
+          <h3>
+            <span style="float: left">{{item.p_name}} {{item.p_time}} &nbsp;&nbsp;</span>
+            <el-rate
+              v-model="item.p_score"
+              disabled
+              show-score
+              text-color="#ff9900"
+              score-template="{value}"
+              style="text-indent: 0px; float:left;">
+            </el-rate>
+            <span style="float: right">{{item.praise}} 有用</span>
+          </h3>
+          <div style="float: left">
             <p>{{item.content}}</p>
           </div>
-        </el-tooltip>
       </el-row>
     </el-main>
   </el-container>
