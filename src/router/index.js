@@ -6,6 +6,7 @@ import HomePage from '../components/home/HomePage'
 import Login from '../components/Login'
 import Home from '../components/Home'
 import Library from '../components/library/Library'
+import Book from '../components/book/Book'
 import Register from '../components/Register'
 // import Articles from '../components/jotter/Articles'
 import Editor from '../components/admin/content/ArticleEditor'
@@ -37,6 +38,14 @@ export default new Router({
           path: '/library',
           name: 'Library',
           component: Library,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/book',
+          name: 'Book',
+          component: Book,
           meta: {
             requireAuth: true
           }
