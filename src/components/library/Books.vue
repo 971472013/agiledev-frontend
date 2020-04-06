@@ -82,7 +82,7 @@
         })
       },
       bookInfo (item) {
-        this.$router.replace('/book')
+        this.$router.replace({path: '/book', query: {id: item.id}})
       }
     }
   }
